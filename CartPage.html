@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/all.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js.map"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>   
+    <link rel="stylesheet" href="css/all.min.css"/>
+    <link rel="stylesheet" href="css/Web.css"/>
+    <style>
+      @media (min-width: 1025px) {
+            .h-custom {
+            height: 100vh !important;
+            }
+            }
+    </style>
+  </head>
+  <body>
+    <section class="h-100 h-custom">
+      <div class="container h-100 py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col">
+    
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="h5">Shopping cart</th>
+                    <th scope="col"> Format</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <div class="d-flex align-items-center">
+                        <img src="Bookpic/1984.jpg" class="img-fluid rounded-3"
+                          style="width: 120px;" alt="Book">
+                        <div class="flex-column ms-4">
+                          <p class="mb-2">1984</p>
+                          <p class="mb-0">George Orwell</p>
+                        </div>
+                      </div>
+                    </th>
+                    <td class="align-middle">
+                      <p class="mb-0" style="font-weight: 500;">Paperback</p>
+                    </td>
+                    <td class="align-middle">
+                      <div class="d-flex flex-row">
+                        <button class="btn btn-link px-2"
+                          onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                          <i class="fas fa-minus text-success"></i>
+                        </button>
+    
+                        <input id="form1" min="0" name="quantity" value="1" type="number"
+                          class="form-control form-control-sm" style="width: 50px;" />
+    
+                        <button class="btn btn-link px-2"
+                          onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                          <i class="fas fa-plus text-success"></i>
+                        </button>
+                      </div>
+                    </td>
+                    <td class="align-middle">
+                      <p class="mb-0" style="font-weight: 500;">147.15 EGP</p>
+                    </td>
+                  </tr>
+    
+    
+    
+                  <tr>
+                    <th scope="row">
+                      <div class="d-flex align-items-center">
+                        <img src="Bookpic/The Silent Patient.jpg" class="img-fluid rounded-3"
+                          style="width: 120px;" alt="Book">
+                        <div class="flex-column ms-4">
+                          <p class="mb-2">The Silent Patient</p>
+                          <p class="mb-0">Alex Michaelides
+                          </p>
+                        </div>
+                      </div>
+                    </th>
+                    <td class="align-middle ">
+                      <p class="mb-0" style="font-weight: 500;">Paperback</p>
+                    </td>
+                    <td class="align-middle ">
+                      <div class="d-flex flex-row">
+                        <button class="btn btn-link px-2"
+                          onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                          <i class="fas fa-minus text-success"></i>
+                        </button>
+    
+                        <input id="form1" min="0" name="quantity" value="1" type="number"
+                          class="form-control form-control-sm" style="width: 50px;" />
+    
+                        <button class="btn btn-link px-2"
+                          onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                          <i class="fas fa-plus text-success"></i>
+                        </button>
+                      </div>
+                    </td>
+                    <td class="align-middle ">
+                      <p class="mb-0" style="font-weight: 500;">234.43 EGP</p>
+                    </td>
+                  </tr>
+            
+                </tbody>
+                 
+              </table>
+            </div>
+    
+            <p class="mb-0 colspan-12 text-end" style="font-weight: 500;"> <h3 class="text-end">Total: 378 EGP</h3></p>
+                  
+            <button class="w-100 btn btn-success btn-lg " type="submit"><a href="CheckOut.html" class="text-reset text-decoration-none">Continue to checkout</a></button>
+    
+           
+                
+    
+              </div>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+    
+    
+  </body>
+</html>
