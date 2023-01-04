@@ -807,65 +807,80 @@
   </h1>
   </div>
 
+<script>
+$bookid =0;
+  function mm($bookid){
+  
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", "book_php.php?r=" + bookid , true);
+  xmlhttp.send();
+    console.log(bookID);
+ var link=document.getElementById(bookid);
+ link.setAttribute('href',"book_php.php?r=" + bookid );
+
+}</script>
+
+
+
 
 <?php
-
-
-
-
-
+$row = 512;
 echo '
-  <div class="cards" >
-
-
-    <div class="card ">
-      <img class="card-img-top" src="pics/becoming.jpg" style="width: 100%; height: 100%;">
+  <div class="cards" >  
+    <a href="book.php?r=513"  style="color: black;">
+    <div class="card "style="width:400px" >
+    <img class="card-img-top" src="pics/becoming.jpg" style="width: 100%; height: 100%;">
     </div>
+    </a>
+  
 
 
-    <div class="card">
+
+    <a href="book.php?r=525"  style="color: black;">
+    <div class="card" style="width:400px">
 
       <img class="card-img-top" src="pics/the night circus.jpg" style="width: 100%; height: 100%;">
     </div>
+</a>
 
-
-
-    <div class="card">
+<a href="book.php?r=545"  style="color: black;">
+    <div class="card"style="width:400px">
 
       <img class="card-img-top" src="pics/the women could fly.webp"
         style="width: 100%; height: 100%;">
     </div>
+</a>
 
-
-
-    <div class="card">
+<a href="book.php?r=541"  style="color: black;">
+    <div class="card"style="width:400px">
 
       <img class="card-img-top" src="pics/house of leaves.webp" style="width: 100%; height: 100%;">
     </div>
+</a>
 
-
-
-    <div class="card">
+<a href="book.php?r=556"  style="color: black;">
+    <div class="card"style="width:400px">
 
       <img class="card-img-top" src="pics/babies around the world.jpg"
         style="width: 100%; height: 100%;">
     </div>
+</a>
 
-
-
-    <div class="card">
+<a href="book.php?r=520"  style="color: black;">
+    <div class="card"style="width:400px">
 
       <img class="card-img-top" src="pics/tell tale heart.jpg"
         style="width: 100%; height: 100%;">
     </div>
+</a>
 
-
-    <div class="card">
+<a href="book.php?r=547"  style="color: black;">
+    <div class="card"style="width:400px">
 
       <img class="card-img-top" src="pics/bared to you.webp" style="width: 100%; height: 100%;">
     </div>
 
-
+</a>
 
 
 
@@ -927,6 +942,7 @@ echo '
 
 
 
+  <?php   include "Footer.php";?>
 
 
 
@@ -934,7 +950,6 @@ echo '
 
 
 
-<?php include "Footer.php"?>
 
 
 </body>
