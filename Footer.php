@@ -78,8 +78,12 @@
             <p>
               <a href="shop.php" class="text-reset text-underline-hover">Shop</a>
             </p>
+
             <p>
-              <a href="Wishlist.php" class="text-reset text-underline-hover">Wishlist</a>
+              <a href="authors_php.php" class="text-reset text-underline-hover">Author</a>
+            </p>
+            <p>
+              <a href="Wishlist.php" class="text-reset text-underline-hover">Wish List</a>
             </p>
             <p>
               <a href="aboutus.php" class="text-reset text-underline-hover">About us</a>
