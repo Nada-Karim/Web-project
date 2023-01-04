@@ -1,4 +1,5 @@
 
+
  <?php
 session_start();
 $conn = mysqli_connect('localhost','root','','bookstore');
@@ -698,6 +699,7 @@ align-content: stretch;
 
 <?php
 $n = 0;
+$q = 0;
 $check = true;
 if(isset($_POST['submit_login'])){
 
@@ -741,7 +743,7 @@ if(isset($_POST['submit_login'])){
 
 };
 
-
+$_SESSION['flag']=$n;
 if(isset($_POST['submit'])){
 
   $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -769,9 +771,8 @@ if(isset($_POST['submit'])){
          $_SESSION['timeout'] = time();
          $_SESSION['UserID'] = trim($row['UserID']);
          $user_id = $_SESSION['UserID'];
-        
          $n = 1;
-
+         $_SESSION['flag']='1';
         $Update = " INSERT INTO cart(UserID) VALUES(".$row['UserID'].")";
         mysqli_query($conn, $Update);
 
@@ -803,11 +804,11 @@ if(isset($_POST['submit'])){
         
      }
   }
-
+  
 };
+$s = 1;
 
-
-if($n==1){
+if ($_SESSION['UserID']!="Null"&& $_SESSION['CartID']!="Null"&& $_SESSION['WishlistID']!="Null" ) {
   echo ' 
   <li class="nav-item dropdown nav-link dropdown-toggle">
  
@@ -821,9 +822,12 @@ if($n==1){
 </li>
 
 ';
+  $q = 1;
 
 }
-else{
+
+
+else if($q==0){
   echo ' <button class="btn btn-default"  data-bs-toggle="modal" data-bs-target="#myModal2">
   <img src="pics/icons8-male-user-100.png" style="height: 40px;"  >
 
@@ -832,14 +836,34 @@ else{
 
 }
 
- if($check==false){
-  
-  echo ' <button class="btn btn-default"  data-bs-toggle="modal" data-bs-target="#myModal2">
-  <img src="pics/icons8-male-user-100.png" style="height: 40px;"  >
 
-</button>';
+
+
+
+if (isset($_POST['yes'])) {
+
+  $_SESSION['UserID']="Null";
+  $_SESSION['CartID']="Null";
+  $_SESSION['WishlistID']="Null";
   
-}
+   
+    echo ' <button class="btn btn-default"  data-bs-toggle="modal" data-bs-target="#myModal2">
+    <img src="pics/icons8-male-user-100.png" style="height: 40px;"  >
+  
+  </button>';
+
+  $flag = 1;
+  
+  }
+
+
+
+
+
+
+
+
+
 
 
 ?>
@@ -988,65 +1012,7 @@ else{
 
 
 
-<!-- The Modal 4 bta3 el logout!! -->
 
-<div class="modal fade" id="myModal4"  style=" height:250px;">
-<div class="modal-dialog  modal-dialog-scrollablet" style="background-color: hsl(113,96%,9%);" >
-
-
-
-  <!-- Modal content -->
-  <div class="modal-content" style="background-color: hsl(113,96%,9%);" >
-  <div class="modals2">
-  <span class="close">&times;</span>
-  <p class="message">Are you sure you want to log out?</p>
-  <div class="options">
-    <button class="btn" id="yes" href="logout.php">yes</button>
-    <button class="btn" id="no">no</button>
-  </div>
-</div>
-
-
-  </div>
-  </div>
-</div>
-
-<script>
-// Get the modal
-var modal = document.getElementById("myModal4");
-
-var yes = document.getElementById("yes");
-var no = document.getElementById("no");
-var modals = document.getElementById("myModal3");
-var btns = document.getElementById("myBtn2");
-var span = document.getElementsByClassName("close")[0];
-
-
-
-btns.onclick = function() {
-  modals.style.display = "block";
-}
-
-span.onclick = function() {
-  modal.style.display = "none";
-}
-no.onclick = function() {
-
-  $('#myModal4').modal('hide');
-
-}
-yes.onclick = function() {
-modal.style.display ="none";
-location.href = "http://localhost/Project%20workspace/index.php";
-}
-
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
 
 
 
@@ -1084,6 +1050,73 @@ window.onclick = function(event) {
 </div>
 </div>
 </div>
+
+
+
+<!-- The Modal 4 bta3 el logout!! -->
+
+
+
+
+<div class="modal fade" id="myModal4"  style=" height:250px;">
+<div class="modal-dialog  modal-dialog-scrollablet" style="background-color: hsl(113,96%,9%);" >
+
+
+
+  <!-- Modal content -->
+  <div class="modal-content" style="background-color: hsl(113,96%,9%);" >
+  <div class="modals2">
+  <span class="close">&times;</span>
+  <p class="message">Are you sure you want to log out?</p>
+  <div class="options">
+    <form action="" method="post"><button class="btn" type="submit" id="yes" name="yes">yes</button></form>
+    <button class="btn" id="no">no</button>
+  </div>
+</div>
+
+
+  </div>
+  </div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal4");
+
+var yes = document.getElementById("yes");
+var no = document.getElementById("no");
+var modals = document.getElementById("myModal3");
+var btns = document.getElementById("myBtn2");
+var span = document.getElementsByClassName("close")[0];
+
+
+
+btns.onclick = function() {
+  modals.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+no.onclick = function() {
+
+  $('#myModal4').modal('hide');
+
+}
+
+yes.onclick = function() {
+modal.style.display ="none";
+location.href = "http://localhost/Project%20workspace/Project%20workspace/index.php";
+}
+
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
 
 <!-- nehayet el nav bar bl login wl sign up wl log out wl search-->
 
